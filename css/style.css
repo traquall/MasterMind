@@ -1,17 +1,11 @@
-body{
-	width: 100%;
-	margin: 5px;
+title{
 	text-align: center;
 }
 
 .plateau{
-	width: 100%;
-	border: 2px solid black;
-}
-
-table{
 	margin-left: 33%;
 	width: 33%;
+	border: 2px solid black;
 }
 
 .bille{
