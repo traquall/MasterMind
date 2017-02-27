@@ -27,17 +27,18 @@ h1{
 }
 
 .rouge{
-	background-color: red;
+	background-color: red !important;
 }
 
 .vert{
-	background-color: green;
+	background-color: green !important;
 }
 
 .bleu{
-	background-color: blue;
+	background-color: blue !important;
 }
 
 .noir{
-	background-color: black;
+	background-color: black !important;
 }
+
