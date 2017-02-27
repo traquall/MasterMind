@@ -6,11 +6,28 @@ body{
 
 .plateau{
 	width: 100%;
+	border: 2px solid black;
+}
+
+table{
+	margin-left: 33%;
+	width: 33%;
 }
 
 .bille{
-	background-color: grey;
+	background-color: white;
 	border-radius: 50%;
+	border-color: black;
+	border-width: 1px;
 	width: 50px;
 	height: 50px;
+}
+
+.indic{
+	background-color: white;
+	border-radius: 50%;
+	border-color: black;
+	border-width: 1px;
+	width: 20px;
+	height: 20px;
 }
