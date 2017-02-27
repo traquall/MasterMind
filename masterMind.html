@@ -88,10 +88,10 @@
 		<div name="reponse">
 			<table>
 				<tr>
-					<td id="bille1" class="bille" onclick="click(1)"></td>
-					<td id="bille2" class="bille" onclick="click(2)"></td>
-					<td id="bille3" class="bille" onclick="click(3)"></td>
-					<td id="bille4" class="bille" onclick="click(4)"></td>
+					<td id="bille1" class="bille" onclick="changeColor(1);"></td>
+					<td id="bille2" class="bille" onclick="changeColor(2);"></td>
+					<td id="bille3" class="bille" onclick="changeColor(3);"></td>
+					<td id="bille4" class="bille" onclick="changeColor(4);"></td>
 				</tr>
 			</table>
 		</div>
@@ -101,7 +101,7 @@
 
 <script type="text/javascript">
 
-function click(id){
+function changeColor(id){
 	console.log("click!");
 
 	var bille = document.getElementById("bille"+id);
