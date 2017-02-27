@@ -102,24 +102,67 @@
 
 <script type="text/javascript">
 
+var colors = ["rouge", "vert", "bleu", "noir"];
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+  var solution = [];
+  solution[0] = Math.floor((Math.random() * 4));
+  solution[1] = Math.floor((Math.random() * 4));
+  solution[2] = Math.floor((Math.random() * 4));
+  solution[3] = Math.floor((Math.random() * 4));
+
+});
 
 
 function validMind(){
+	var billes = [];
+	billes[0] = document.getElementById("bille1");
+	billes[1] = document.getElementById("bille2");
+	billes[2] = document.getElementById("bille3");
+	billes[3] = document.getElementById("bille4");
+
+	var bon = 0;
+	var presque = 0;
+
+	for (var i = 0; i < billes.length; i++) {
+		if(this.hasClass(billes[i], colors[solution[i]])){
+			bon++;
+		}
+		else{
+			colors.forEach(function(element){
+				if(this.hasClass(billes[i], element)){
+					presque++;
+					return;
+				}
+			});
+		}
+	};
+
+	for (var i = 0; i < 4; i++) {
+		var indic = document.getElementById("l1indic"+i);
+		if(bon > 0){
+			indic.className = "red";
+			bon--;
+		}
+		else if(presque > 0){
+			indic.className = "noir";
+			presque--;
+		}
+
+		var billeStocke = document.getElementById("l1bille"+i);
+		billeStocke.className = billes[i].className;
+	};
 
 }
 
 function changeColor(id){
 	console.log("click!");
-
-	var colors = ["rouge", "vert", "bleu", "noir"];
+	
 	var color = 0;
 
 	var bille = document.getElementById("bille"+id);
 
 	for (var i = 0 ; i < colors.length; i++) {
-		console.log("bille:"+bille);
-		console.log("color:"+colors[i]);
-		console.log("hasclass:"+this.hasClass(bille, colors[i]));
 		if(this.hasClass(bille, colors[i])){
 			color = i+1;
 		}
