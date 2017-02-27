@@ -138,6 +138,7 @@ function validMind(){
 			solution.forEach(function(element){
 				if(this.hasClass(billes[i], colors[element])){
 					presque++;
+					console.log(i);
 					return;
 				}
 			});
@@ -165,10 +166,7 @@ function validMind(){
 }
 
 function changeColor(id){
-	console.log("click!");
-	
 	var color = 0;
-
 	var bille = document.getElementById("bille"+id);
 
 	for (var i = 0 ; i < colors.length; i++) {
