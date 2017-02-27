@@ -110,24 +110,17 @@ function changeColor(id){
 	console.log("click!");
 
 	var colors = ["rouge", "vert", "bleu", "noir"];
+	var color = 0;
 
 	var bille = document.getElementById("bille"+id);
 
 	for (var i = 0 ; i = colors.length; i++) {
 		if(this.hasClass(bille, colors[i])){
-			if(i<colors.length-1){
-				bille.className = "bille "+colors[i+1];
-			}
-			else{
-				bille.className = "bille rouge";
-			}
-
+			color = i;
 		}
-		else{
-			bille.className = "bille rouge";
-		}
-
 	};
+
+	bille.className = "bille "+colors[color];
 }
 
 function hasClass(element, cls) {
