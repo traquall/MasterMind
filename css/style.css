@@ -3,8 +3,9 @@ title{
 }
 
 .plateau{
+	padding: 10px;
 	margin-left: 33%;
-	width: 33%;
+	display: inline-block;
 	border: 2px solid black;
 }
 
