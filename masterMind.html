@@ -135,8 +135,8 @@ function validMind(){
 			bon++;
 		}
 		else{
-			colors.forEach(function(element){
-				if(this.hasClass(billes[i], element)){
+			solution.forEach(function(element){
+				if(this.hasClass(billes[i], colors[element])){
 					presque++;
 					return;
 				}
