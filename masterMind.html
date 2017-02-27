@@ -139,7 +139,7 @@ function validMind(){
 	};
 
 	for (var i = 0; i < 4; i++) {
-		var indic = document.getElementById("l1indic"+i);
+		var indic = document.getElementById("l1indic"+(i+1));
 		if(bon > 0){
 			indic.className = "red";
 			bon--;
