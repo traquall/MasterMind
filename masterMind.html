@@ -131,6 +131,8 @@ function validMind(){
 	var presque = 0;
 
 	for (var i = 0; i < billes.length; i++) {
+		console.log(i);
+
 		if(this.hasClass(billes[i], colors[solution[i]])){
 			bon++;
 		}
@@ -138,7 +140,6 @@ function validMind(){
 			solution.forEach(function(element){
 				if(this.hasClass(billes[i], colors[element])){
 					presque++;
-					console.log(i);
 					return;
 				}
 			});
