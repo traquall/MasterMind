@@ -1,12 +1,9 @@
-body{
-	background-image:url(img/background.jpg);
-}
-
-title{
+h1{
 	text-align: center;
 }
 
 .plateau{
+	background-color: white;
 	padding: 10px;
 	margin-left: 33%;
 	display: inline-block;
@@ -27,4 +24,20 @@ title{
 	border: 1px solid black;
 	width: 20px;
 	height: 20px;
+}
+
+.rouge{
+	background-color: red;
+}
+
+.vert{
+	background-color: green;
+}
+
+.bleu{
+	background-color: blue;
+}
+
+.noir{
+	background-color: black;
 }
