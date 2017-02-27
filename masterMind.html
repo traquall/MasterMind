@@ -92,7 +92,7 @@
 					<td id="bille2" class="bille" onclick="changeColor(2);"></td>
 					<td id="bille3" class="bille" onclick="changeColor(3);"></td>
 					<td id="bille4" class="bille" onclick="changeColor(4);"></td>
-					<td><button style="width: 100%; height: 100%;">OK</button></td>
+					<td><button style="margin-left: 5px; width: 50px; height: 50px;" onclick="validMind();">OK!</button></td>
 				</tr>
 			</table>
 		</div>
@@ -102,23 +102,28 @@
 
 <script type="text/javascript">
 
+function validMind(){
+
+}
+
 function changeColor(id){
 	console.log("click!");
 
+	var colors = ["rouge", "vert", "bleu", "noir"];
+
 	var bille = document.getElementById("bille"+id);
 
-	if(this.hasClass(bille, "rouge")){
-		bille.className = "bille vert";
-	}
-	else if(this.hasClass(bille, "vert")){
-		bille.className = "bille bleu";
-	}
-	else if(this.hasClass(bille, "bleu")){
-		bille.className = "bille noir";
-	}
-	else{
-		bille.className = "bille rouge";
-	}
+	for (var i = 0 ; i = colors.length; i++) {
+		if(this.hasClass(bille, colors[i])){
+			if(i<colors.length-1){
+				bille.className = "bille "+colors[i+1];
+			}
+			else{
+				bille.className = "bille rouge";
+			}
+
+		}
+	};
 }
 
 function hasClass(element, cls) {
