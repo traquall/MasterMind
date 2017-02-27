@@ -4,182 +4,42 @@
   <meta charset="utf-8">
   <title>MasterMind</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js"></script>
 </head>
 <body background="img/background.jpg">
 	<h1>MasterMind</h1>
 	<div class="plateau">
 		<div class="repondu">
-			<table>
-				<tr>
-					<td id="l1bille1" class="bille"></td>
-					<td id="l1bille2" class="bille"></td>
-					<td id="l1bille3" class="bille"></td>
-					<td id="l1bille4" class="bille"></td>
-					<td>
-						<table>
-							<tr>
-								<td id="l1indic1" class="indic"></td>
-								<td id="l1indic2" class="indic"></td>
-							</tr>
-							<tr>
-								<td id="l1indic3" class="indic"></td>
-								<td id="l1indic4" class="indic"></td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-				<tr>
-					<td id="l2bille1" class="bille"></td>
-					<td id="l2bille2" class="bille"></td>
-					<td id="l2bille3" class="bille"></td>
-					<td id="l2bille4" class="bille"></td>
-					<td>
-						<table>
-							<tr>
-								<td id="l2indic1" class="indic"></td>
-								<td id="l2indic2" class="indic"></td>
-							</tr>
-							<tr>
-								<td id="l2indic3" class="indic"></td>
-								<td id="l2indic4" class="indic"></td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-				<tr>
-					<td id="l3bille1" class="bille"></td>
-					<td id="l3bille2" class="bille"></td>
-					<td id="l3bille3" class="bille"></td>
-					<td id="l3bille4" class="bille"></td>
-					<td>
-						<table>
-							<tr>
-								<td id="l3indic1" class="indic"></td>
-								<td id="l3indic2" class="indic"></td>
-							</tr>
-							<tr>
-								<td id="l3indic3" class="indic"></td>
-								<td id="l3indic4" class="indic"></td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-				<tr>
-					<td id="l4bille1" class="bille"></td>
-					<td id="l4bille2" class="bille"></td>
-					<td id="l4bille3" class="bille"></td>
-					<td id="l4bille4" class="bille"></td>
-					<td>
-						<table>
-							<tr>
-								<td id="l4indic1" class="indic"></td>
-								<td id="l4indic2" class="indic"></td>
-							</tr>
-							<tr>
-								<td id="l4indic3" class="indic"></td>
-								<td id="l4indic4" class="indic"></td>
-							</tr>
-						</table>
-					</td>
-				</tr>
+			<table id="billestock">
 			</table>
 		</div>	
 		<hr>
 		<div name="reponse">
 			<table>
 				<tr>
-					<td id="bille1" class="bille" onclick="changeColor(1);"></td>
-					<td id="bille2" class="bille" onclick="changeColor(2);"></td>
-					<td id="bille3" class="bille" onclick="changeColor(3);"></td>
-					<td id="bille4" class="bille" onclick="changeColor(4);"></td>
+					<td id="bille1" class="bille rouge" onclick="changeColor(1);"></td>
+					<td id="bille2" class="bille rouge" onclick="changeColor(2);"></td>
+					<td id="bille3" class="bille rouge" onclick="changeColor(3);"></td>
+					<td id="bille4" class="bille rouge" onclick="changeColor(4);"></td>
 					<td><button style="margin-left: 5px; width: 50px; height: 50px;" onclick="validMind();">OK!</button></td>
 				</tr>
 			</table>
 		</div>
 	</div>
+	<div id="modalVictory" class="modal">
+	  <div class="modal-content">
+	    <span class="close" onclick="regame();">&times;</span>
+	    <p>Victoire !</p>
+	  </div>
+
+	</div>
+	<div id="modalDefeat" class="modal">
+	  <div class="modal-content">
+	    <span class="close" onclick="regame();">&times;</span>
+	    <p>Defaite !</p>
+	    <p id="solution"></p>
+	  </div>
+
+	</div>
 </body>
 </html>
-
-<script type="text/javascript">
-
-var colors = ["rouge", "vert", "bleu", "noir"];
-var solution = [];
-
-document.addEventListener("DOMContentLoaded", function(event) {   
-  solution[0] = Math.floor((Math.random() * 4));
-  solution[1] = Math.floor((Math.random() * 4));
-  solution[2] = Math.floor((Math.random() * 4));
-  solution[3] = Math.floor((Math.random() * 4));
-
-  console.log("solution:");
-  console.log(solution);
-  console.log(colors[solution[0]]);
-  console.log(colors[solution[1]]);
-  console.log(colors[solution[2]]);
-  console.log(colors[solution[3]]);
-});
-
-
-function validMind(){
-	var billes = [];
-	billes[0] = document.getElementById("bille1");
-	billes[1] = document.getElementById("bille2");
-	billes[2] = document.getElementById("bille3");
-	billes[3] = document.getElementById("bille4");
-
-	var bon = 0;
-	var presque = 0;
-
-	for (var i = 0; i < billes.length; i++) {
-		console.log(i);
-
-		if(this.hasClass(billes[i], colors[solution[i]])){
-			bon++;
-		}
-		else{
-			solution.forEach(function(element){
-				if(this.hasClass(billes[i], colors[element])){
-					presque++;
-					return;
-				}
-			});
-		}
-	};
-
-	for (var i = 1; i < 5; i++) {
-		var indic = document.getElementById("l1indic"+i);
-		if(bon > 0){
-			indic.className = "indic rouge";
-			bon--;
-		}
-		else if(presque > 0){
-			indic.className = "indic noir";
-			presque--;
-		}
-		else{
-			indic.className = "indic";
-		}
-
-		var billeStocke = document.getElementById("l1bille"+i);
-		billeStocke.className = billes[i-1].className;
-	};
-
-}
-
-function changeColor(id){
-	var color = 0;
-	var bille = document.getElementById("bille"+id);
-
-	for (var i = 0 ; i < colors.length; i++) {
-		if(this.hasClass(bille, colors[i])){
-			color = i+1;
-		}
-	};
-
-	bille.className = "bille "+colors[color];
-}
-
-function hasClass(element, cls) {
-    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
-}
-</script>
