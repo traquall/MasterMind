@@ -2,7 +2,7 @@ var colors = ["rouge", "vert", "bleu", "noir"];
 var solution = [];
 var tour;
 
-document.addEventListener("DOMContentLoaded", function(event) {   
+document.addEventListener("DOMContentLoaded", function(event) {
   solution[0] = Math.floor((Math.random() * 4));
   solution[1] = Math.floor((Math.random() * 4));
   solution[2] = Math.floor((Math.random() * 4));
@@ -37,7 +37,7 @@ function validMind(){
 		tempSolution[i] = solution[i];
 		tempPropos[i] = getIntColor(billes[i]);
 	};
-	
+
 	var bon = 0;
 	var presque = 0;
 
@@ -48,34 +48,34 @@ function validMind(){
 			tempSolution[i] = -1;
 			tempPropos[i] = -2;
 			console.log("a"+i);
-		}		
+		}
 	};
 
-	for (var i = 0; i < tempPropos.length; i++) {				
+	for (var i = 0; i < tempPropos.length; i++) {
 		if(tempPropos[i] == tempSolution[0]){
-			presque++;	
+			presque++;
 			tempSolution[0] = -1;
 			tempPropos[i] = -2;
-			console.log("b"+i);				
+			console.log("b"+i);
 		}
 		else if(tempPropos[i] == tempSolution[1]){
-			presque++;	
+			presque++;
 			tempSolution[1] = -1;
-			tempPropos[i] = -2;	
-			console.log("c"+i);			
+			tempPropos[i] = -2;
+			console.log("c"+i);
 		}
 		else if(tempPropos[i] == tempSolution[2]){
-			presque++;	
+			presque++;
 			tempSolution[2] = -1;
-			tempPropos[i] = -2;		
-			console.log("d"+i);		
+			tempPropos[i] = -2;
+			console.log("d"+i);
 		}
 		else if(tempPropos[i] == tempSolution[3]){
-			presque++;		
+			presque++;
 			tempSolution[3] = -1;
-			tempPropos[i] = -2;	
-			console.log("e"+i);		
-		}		
+			tempPropos[i] = -2;
+			console.log("e"+i);
+		}
 	}
 	newLineFunction(bon, presque);
 }
@@ -87,8 +87,8 @@ function newLineFunction(bon, presque){
 		document.getElementById("modalVictory").style.display = "block";
 	}
 
-	if(tour == 12 && bon <4){
-		document.getElementById("modalDefeat").style.display = "block";		
+	if(tour == 8 && bon <4){
+		document.getElementById("modalDefeat").style.display = "block";
 	}
 
 	// création d'une nouvelle ligne pour stocker les billes
@@ -135,7 +135,7 @@ function regame(){
 	window.location.reload();
 }
 
-function changeColor(id){	
+function changeColor(id){
 	var color = 0;
 	var bille = document.getElementById("bille"+id);
 
